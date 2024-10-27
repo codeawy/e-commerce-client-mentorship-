@@ -143,8 +143,7 @@ const Home = () => {
       id: "1",
       img: right,
       title: "title2",
-      Subtitle:
-        "subtitle2 flex gap-1  md:gap-[61px] w-full lg:h-[344px] mt-10 mb-[140px]flex gap-1  md:gap-[61px] w-full lg:h-[344px] mt-10 mb-[140px]flex gap-1  md:gap-[61px] w-full lg:h-[344px] mt-10 mb-[140px]flex gap-1  md:gap-[61px] w-full lg:h-[344px] mt-10 mb-[140px]flex gap-1  md:gap-[61px] w-full lg:h-[344px] mt-10 mb-[140px]flex gap-1  md:gap-[61px] w-full lg:h-[344px] mt-10 mb-[140px] ",
+      Subtitle: "subtitle2  ",
     },
     { id: "2", img: headphones, title: "title3", Subtitle: "subtitle3" },
   ];
@@ -205,15 +204,21 @@ const Home = () => {
         </section>
 
         <section className="today">
-          <div className="flex flex-col gap-4 md:gap-0 md:flex-row  items-start  md:items-center mb-10 relative">
+          <div className="flex flex-col gap-4 md:gap-0 md:flex-row items-start md:items-center mb-10 relative">
             <SectionTitle subTitle="Today" title="Flash Sales" />
             <Timer classesName="md:self-end md:ml-[87px]" />
 
             <div className="mt-4 self-end ml-auto flex items-center gap-2">
-              <button className="swiper-button-prev swiper-button-black">
+              <button
+                id="flash-sale-prev"
+                className="swiper-button-prev swiper-button-black"
+              >
                 <FiArrowLeft className="w-4 h-4 cursor-pointer" />
               </button>
-              <button className="swiper-button-next swiper-button-black">
+              <button
+                id="flash-sale-next"
+                className="swiper-button-next swiper-button-black"
+              >
                 <FiArrowRight className="w-4 h-4 cursor-pointer" />
               </button>
             </div>
@@ -223,7 +228,9 @@ const Home = () => {
             slidesPerView={4.5}
             breakpoints={{
               100: { slidesPerView: 1 },
-              320: { slidesPerView: 1.5 },
+              320: { slidesPerView: 1 },
+              400: { slidesPerView: 1.25 },
+              480: { slidesPerView: 1.5 },
               768: { slidesPerView: 2.5 },
               1024: { slidesPerView: 3 },
               1270: { slidesPerView: 4 },
@@ -231,21 +238,23 @@ const Home = () => {
             }}
             showPagination={false}
             showNavigation={true}
+            navigation={{
+              prevEl: "#flash-sale-prev",
+              nextEl: "#flash-sale-next",
+            }}
           >
-            {productSlides.map((slide, i) => {
-              return (
-                <SwiperSlide key={i}>
-                  <ProductCard
-                    imageUrl={slide.imageUrl}
-                    title={slide.title}
-                    price={slide.price}
-                    prePrice={slide.prePrice}
-                    ratingPercentage={slide.ratingPercentage}
-                    discount={slide.discount}
-                  />
-                </SwiperSlide>
-              );
-            })}
+            {productSlides.map((slide, i) => (
+              <SwiperSlide key={i}>
+                <ProductCard
+                  imageUrl={slide.imageUrl}
+                  title={slide.title}
+                  price={slide.price}
+                  prePrice={slide.prePrice}
+                  ratingPercentage={slide.ratingPercentage}
+                  discount={slide.discount}
+                />
+              </SwiperSlide>
+            ))}
           </Slider>
 
           <div className="flex justify-center">
@@ -258,45 +267,49 @@ const Home = () => {
         </section>
 
         <section className="categories">
-          <div className="flex flex-col gap-4 md:gap-0 md:flex-row  items-start  md:items-center mb-10 relative">
-            <SectionTitle subTitle="categories" title="browse by category" />
+          <div className="flex flex-col gap-4 md:gap-0 md:flex-row items-start md:items-center mb-10 relative">
+            <SectionTitle subTitle="Categories" title="Browse by Category" />
             <div className="self-end ml-auto flex items-center gap-2">
-              <button className="swiper-button-prev swiper-button-black">
+              <button
+                id="categories-prev"
+                className="swiper-button-prev swiper-button-black"
+              >
                 <FiArrowLeft className="w-4 h-4 cursor-pointer" />
               </button>
-              <button className="swiper-button-next swiper-button-black">
+              <button
+                id="categories-next"
+                className="swiper-button-next swiper-button-black"
+              >
                 <FiArrowRight className="w-4 h-4 cursor-pointer" />
               </button>
             </div>
           </div>
-          <div className=" mt-[60px] gap-[30px] mb-[70px] ">
-            <Slider
-              slidesPerView={6}
-              breakpoints={{
-                100: { slidesPerView: 1 },
-                320: { slidesPerView: 1.5 },
-                768: { slidesPerView: 3 },
-                1024: { slidesPerView: 5 },
-                1280: { slidesPerView: 6 },
-                1440: { slidesPerView: 6 },
-              }}
-              showPagination={false}
-              showNavigation={true}
-            >
-              {categories.map((ele, i) => {
-                return (
-                  <SwiperSlide key={i}>
-                    <CategoryCard
-                      key={i}
-                      categoryIcon={ele.icon}
-                      categoryName={ele.name}
-                    />
-                  </SwiperSlide>
-                );
-              })}
-            </Slider>
-          </div>
-          <LineDivider />
+
+          <Slider
+            slidesPerView={6}
+            breakpoints={{
+              100: { slidesPerView: 1 },
+              320: { slidesPerView: 1.5 },
+              768: { slidesPerView: 3 },
+              1024: { slidesPerView: 5 },
+              1280: { slidesPerView: 6 },
+              1440: { slidesPerView: 6 },
+            }}
+            showPagination={false}
+            showNavigation={true}
+            navigation={{
+              prevEl: "#categories-prev",
+              nextEl: "#categories-next",
+            }}
+          >
+            {categories.map((ele, i) => (
+              <SwiperSlide key={i}>
+                <CategoryCard categoryIcon={ele.icon} categoryName={ele.name} />
+              </SwiperSlide>
+            ))}
+          </Slider>
+
+          <LineDivider classesName="mt-[70px]" />
         </section>
 
         <section className="thisMonth">

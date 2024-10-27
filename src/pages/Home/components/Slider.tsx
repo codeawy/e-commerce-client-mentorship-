@@ -23,6 +23,7 @@ interface SliderProps {
   autoplayDelay?: number;
   direction?: "horizontal" | "vertical";
   effect?: "slide" | "fade" | "cube" | "coverflow" | "flip";
+  navigation?: { nextEl: string; prevEl: string };
 }
 
 const Slider = forwardRef<SwiperRef, SliderProps>(
@@ -32,13 +33,14 @@ const Slider = forwardRef<SwiperRef, SliderProps>(
       slidesPerView = 1,
       children,
       classes = "",
-      breakpoints, // Custom breakpoints
+      breakpoints,
       showPagination = true,
       showNavigation = false,
       autoplay = false,
       autoplayDelay = 3000,
       direction = "horizontal",
       effect = "slide",
+      navigation,
     },
     ref
   ) => {
@@ -46,12 +48,8 @@ const Slider = forwardRef<SwiperRef, SliderProps>(
       <Swiper
         ref={ref}
         modules={[Pagination, Navigation, Autoplay]}
-        pagination={showPagination ? { clickable: true } : false} // Conditional pagination
-        navigation={
-          showNavigation
-            ? { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
-            : false
-        } // Conditional navigation
+        pagination={showPagination ? { clickable: true } : false}
+        navigation={showNavigation && navigation ? navigation : false}
         autoplay={autoplay ? { delay: autoplayDelay } : false}
         spaceBetween={spaceBetween}
         slidesPerView={slidesPerView}
