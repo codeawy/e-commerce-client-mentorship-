@@ -1,10 +1,10 @@
-// import { AiOutlineSend } from "react-icons/ai";
-import QR from "@/assets/Images/svg/Qr Code.svg";
-import appPlay from "@/assets/Images/svg/Apple_gray_logo 1.svg";
-import iconFace from "@/assets/Images/svg/icon-Facebook.svg";
-import iconLinked from "@/assets/Images/svg/Icon-Linkedin.svg";
-import iconInsta from "@/assets/Images/svg/icon-instagram.svg";
-import icontwiter from "@/assets/Images/svg/Icon-Twitter.svg";
+import { AiOutlineSend } from "react-icons/ai";
+import QR from "@/assets/imgs/svg/Qr Code.svg";
+import appPlay from "@/assets/imgs/svg/Apple_gray_logo 1.svg";
+import iconFace from "@/assets/imgs/svg/icon-Facebook.svg";
+import iconLinked from "@/assets/imgs/svg/Icon-Linkedin.svg";
+import iconInsta from "@/assets/imgs/svg/icon-instagram.svg";
+import icontwiter from "@/assets/imgs/svg/Icon-Twitter.svg";
 import Container from "@/components/common/Container";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
@@ -33,7 +33,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="p-3 text-gray-500 pr-12 text-[16px] h-[48px] border-[1.5px]" // Add padding to the right for the icon
               />
-              {/* <AiOutlineSend className="absolute right-3 w-6 h-6 text-white" /> */}
+              <AiOutlineSend className="absolute right-3 w-6 h-6 text-white" />
             </div>
           </div>
 

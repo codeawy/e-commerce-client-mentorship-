@@ -5,6 +5,8 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ProtectedRout from "./ProtectedRout";
 import Home from "@/pages/Home/Index";
+import About from "@/pages/About/Index";
+import Contact from "@/pages/Contact/Index";
 
 // Group Auth Pages
 const AuthPages = {
@@ -16,7 +18,7 @@ const router = createBrowserRouter([
   {
     path: ROUTES.Main,
     element: (
-      <ProtectedRout isAuthenticated={false}>
+      <ProtectedRout isAuthenticated={true}>
         <MainLayout />
       </ProtectedRout>
     ),
@@ -25,10 +27,18 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: ROUTES.ABOUT,
+        element: <About />,
+      },
+      {
+        path: ROUTES.CONTACT,
+        element: <Contact />,
+      },
     ],
   },
   {
-    path: ROUTES.Main,
+    path: ROUTES.Auth, // Define a different path for Auth
     element: <AuthLayout />,
     children: [
       {
@@ -36,7 +46,7 @@ const router = createBrowserRouter([
         element: <AuthPages.Login />,
       },
       {
-        path: ROUTES.REGISTER,
+        path: ROUTES.REGISTER, // Ensure this matches the signup link
         element: <AuthPages.Register />,
       },
     ],

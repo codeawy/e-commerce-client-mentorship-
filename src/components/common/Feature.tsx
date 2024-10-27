@@ -7,7 +7,9 @@ interface IProps {
 
 const Feature = ({ featureImg, subtitle, title, className }: IProps) => {
   return (
-    <div className={`flex flex-col gap-6 items-center  ${className}`}>
+    <div
+      className={`flex flex-col gap-6 items-center justify-center ${className}`}
+    >
       <div className="w-20 h-20 rounded-full bg-gray-300 flex justify-center items-center">
         <div className="flex justify-center items-center bg-black rounded-full w-[58px] h-[58px]">
           <img src={featureImg} alt="" />

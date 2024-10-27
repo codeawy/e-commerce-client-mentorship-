@@ -1,9 +1,9 @@
 import Navbar from "./components/Navbar";
 import { Input } from "@/components/ui/input";
-import HeartIcon from "@/assets/Images/svg/Heart.svg";
-import BasketIcon from "@/assets/Images/svg/Cart1 with buy.svg";
+import HeartIcon from "@/assets/imgs/svg/Heart.svg";
+import BasketIcon from "@/assets/imgs/svg/Cart1 with buy.svg";
 import Container from "@/components/common/Container";
-import search from "@/assets/Images/svg/search.svg";
+import search from "@/assets/imgs/svg/search.svg";
 const Header = () => {
   return (
     <>
