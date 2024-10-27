@@ -1,0 +1,66 @@
+.swiper-wrapper {
+}
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+  background-color: #ffffff;
+}
+
+.swiper-pagination-bullet-active {
+  width: 14px;
+  height: 14px;
+  opacity: initial;
+  background-color: #db4444;
+  border: 2px solid #ffffff;
+}
+.swiper-slide {
+  margin-right: 0 !important;
+  /* width: 100% !important; */
+}
+.slider-container {
+  width: 100%;
+}
+.swiper-slide-custom {
+  width: 100% !important;
+  display: flex;
+}
+.swiper-button-black {
+  background-color: #f5f5f5; /* Gray circle */
+  color: black; /* Arrow color */
+  border-radius: 50%; /* Make it circular */
+  width: 46px; /* Adjust size */
+  height: 46px; /* Adjust size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px; /* Size of the arrow */
+  cursor: pointer; /* Pointer cursor */
+  border: none; /* Remove default border */
+}
+
+.swiper-button-black::after {
+  font-size: 16px; /* Size of the arrow */
+}
+.swiper-button-prev {
+}
+.swiper-button-next {
+  margin-left: 16px;
+}
+
+/* Optional: Adjust button positioning */
+.swiper-button-prev,
+.swiper-button-next {
+  position: relative; /* This allows the buttons to align correctly within the parent */
+}
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after,
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: none;
+}
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  width: initial;
+  height: initial;
+}
